@@ -1,6 +1,13 @@
-<div class="game-container">
-    <link rel="stylesheet" href="styles.css">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
     <h1>Daily Car Guess</h1>
     <div id="photo-container">
       <img id="car-photo" src="" alt="Car Photo">
@@ -15,14 +22,16 @@
     </div>
     <button id="archive-button">Archived</button>
     <p id="saved-answers"></p>
-  
+
     <!-- Modal for Archive -->
     <div id="archive-modal" class="hidden">
       <div class="archive-content">
-        <h2>Archived Games</h2>
-        <ul id="archive-list"></ul>
+        <h2>Select a Date</h2>
+        <div id="calendar"></div>
         <button id="close-archive">Close</button>
       </div>
     </div>
   </div>
-  
+  <script src="script.js"></script>
+</body>
+</html>
