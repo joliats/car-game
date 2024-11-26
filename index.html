@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Daily Car Guess</h1>
+    <div id="photo-container">
+      <img id="car-photo" src="" alt="Car Photo">
+    </div>
+    <p id="feedback"></p>
+    <div id="guess-container">
+      <input type="text" id="guess-make" placeholder="Make">
+      <input type="text" id="guess-model" placeholder="Model">
+      <input type="text" id="guess-trim" placeholder="Trim">
+      <input type="number" id="guess-year" placeholder="Year">
+      <button id="submit-guess">Submit Guess</button>
+    </div>
+    <p id="saved-answers"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

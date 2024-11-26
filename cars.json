@@ -1,0 +1,28 @@
+{
+    "2024-11-26": {
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "year": 2022,
+      "trim": "STO",
+      "photos": [
+        "photos/2024-11-26-1.png",
+        "photos/2024-11-26-2.png",
+        "photos/2024-11-26-3.png",
+        "photos/2024-11-26-4.png",
+        "photos/2024-11-26-full.png"
+      ]
+    },
+    "2024-11-25": {
+      "make": "Ford",
+      "model": "Mustang",
+      "year": 1967,
+      "photos": [
+        "photos/2024-11-25-1.jpg",
+        "photos/2024-11-25-2.jpg",
+        "photos/2024-11-25-3.jpg",
+        "photos/2024-11-25-4.jpg",
+        "photos/2024-11-25-full.jpg"
+      ]
+    }
+  }
+  
