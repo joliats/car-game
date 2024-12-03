@@ -1,7 +1,6 @@
 const photoContainer = document.getElementById("car-photo");
 const feedback = document.getElementById("feedback");
 const savedAnswers = document.getElementById("saved-answers");
-
 const guessMakeInput = document.getElementById("guess-make");
 const guessModelInput = document.getElementById("guess-model");
 const guessTrimInput = document.getElementById("guess-trim");
@@ -19,9 +18,14 @@ let correctGuesses = { make: false, model: false, trim: false, year: false };
 
 // Fetch car data
 async function fetchCars() {
-  const response = await fetch("cars.json");
-  carsData = await response.json();
-  loadDailyCar();
+  try {
+    const response = await fetch("cars.json");
+    carsData = await response.json();
+    console.log("Fetched carsData:", carsData); // Debug
+    loadDailyCar();
+  } catch (error) {
+    console.error("Error fetching car data:", error);
+  }
 }
 
 // Load today's car
@@ -69,13 +73,18 @@ function updateSavedAnswers() {
 
 // Populate calendar
 function populateCalendar() {
-  calendar.innerHTML = "";
+  console.log("Populating calendar..."); // Debug
+  console.log("carsData:", carsData);
+
+  calendar.innerHTML = ""; // Clear previous entries
   Object.keys(carsData).forEach((date) => {
     const dateDiv = document.createElement("div");
     dateDiv.textContent = date;
+    dateDiv.classList.add("date-item"); // Optional styling
     dateDiv.addEventListener("click", () => {
-      archiveModal.classList.add("hidden");
+      console.log(`Loading car for ${date}`); // Debug
       loadArchivedCar(date);
+      archiveModal.classList.add("hidden"); // Close modal
     });
     calendar.appendChild(dateDiv);
   });
@@ -92,11 +101,13 @@ function loadArchivedCar(date) {
 
 // Open and close archive modal
 archiveButton.addEventListener("click", () => {
+  console.log("Archive button clicked"); // Debug
   populateCalendar();
   archiveModal.classList.remove("hidden");
 });
 
 closeArchive.addEventListener("click", () => {
+  console.log("Close button clicked!"); // Debug
   archiveModal.classList.add("hidden");
 });
 
