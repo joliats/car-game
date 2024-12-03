@@ -25,17 +25,35 @@ body {
   margin-bottom: 10px;
 }
 
+button#submit-guess {
+  display: block; /* Ensures the button takes up its own line */
+  margin: 20px auto; /* Centers the button horizontally */
+  padding: 10px 20px; /* Adds padding for better clickability */
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Optional: Improves readability */
+}
+
+button#submit-guess:hover {
+  background: #555; /* Subtle hover effect */
+}
+
+#guess-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to form rows */
+  justify-content: space-between; /* Ensures spacing between inputs */
+}
+
 #guess-container input {
   margin: 5px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: calc(48% - 10px);
-  box-sizing: border-box;
-}
-
-#guess-container input[type="number"] {
-  width: calc(48% - 10px);
+  width: calc(48% - 10px); /* Two inputs per row, accounting for margins */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
 button {
@@ -52,7 +70,7 @@ button:hover {
 }
 
 #feedback {
-  font-weight: bold;
+  font-weight: 400px;
   margin-top: 10px;
 }
 
