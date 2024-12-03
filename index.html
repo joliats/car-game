@@ -8,30 +8,31 @@
 </head>
 <body>
   <div class="game-container">
-    <h1>Daily Car Guess</h1>
+    <h1>Car Guessing Game</h1>
     <div id="photo-container">
-      <img id="car-photo" src="" alt="Car Photo">
+      <img id="car-photo" src="" alt="Car Image">
     </div>
-    <p id="feedback"></p>
     <div id="guess-container">
-      <input type="text" id="guess-make" placeholder="Make">
-      <input type="text" id="guess-model" placeholder="Model">
-      <input type="text" id="guess-trim" placeholder="Trim">
-      <input type="number" id="guess-year" placeholder="Year">
+      <input type="text" id="make" placeholder="Make" autocomplete="off">
+      <input type="text" id="model" placeholder="Model" autocomplete="off">
+      <input type="number" id="year" placeholder="Year" autocomplete="off">
+      <input type="text" id="trim" placeholder="Trim" autocomplete="off">
       <button id="submit-guess">Submit Guess</button>
     </div>
-    <button id="archive-button">Archived</button>
-    <p id="saved-answers"></p>
-
-    <!-- Modal for Archive -->
-    <div id="archive-modal" class="hidden">
-      <div class="archive-content">
-        <h2>Archived Cars</h2>
-        <div id="calendar" class="date-grid"></div>
-        <button id="close-archive">Close</button>
-      </div>
-    </div>    
+    <p id="feedback"></p>
+    <button id="next-image">Next Image</button>
+    <button id="view-archive">View Archive</button>
   </div>
+
+  <!-- Archive Modal -->
+  <div id="archive-modal" class="hidden">
+    <div class="archive-content">
+      <h2>Game Archive</h2>
+      <div class="date-grid" id="archive-grid"></div>
+      <button id="close-archive">Close</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

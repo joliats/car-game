@@ -1,115 +1,95 @@
-const photoContainer = document.getElementById("car-photo");
-const feedback = document.getElementById("feedback");
-const savedAnswers = document.getElementById("saved-answers");
-const guessMakeInput = document.getElementById("guess-make");
-const guessModelInput = document.getElementById("guess-model");
-const guessTrimInput = document.getElementById("guess-trim");
-const guessYearInput = document.getElementById("guess-year");
-const submitButton = document.getElementById("submit-guess");
-const archiveButton = document.getElementById("archive-button");
-const archiveModal = document.getElementById("archive-modal");
-const calendar = document.getElementById("calendar");
-const closeArchive = document.getElementById("close-archive");
+let currentDate = new Date().toISOString().split('T')[0];
+let currentGame;
+let currentImageIndex = 0;
+let guesses = { make: "", model: "", year: "", trim: "" };
 
-let carsData = {};
-let currentCar = {};
-let currentPhotoIndex = 0;
-let correctGuesses = { make: false, model: false, trim: false, year: false };
-
-// Fetch car data
-async function fetchCars() {
-  try {
-    const response = await fetch("cars.json");
-    carsData = await response.json();
-    console.log("Fetched carsData:", carsData); // Debug
-    loadDailyCar();
-  } catch (error) {
-    console.error("Error fetching car data:", error);
-  }
-}
-
-// Load today's car
-function loadDailyCar() {
-  const today = new Date().toISOString().split("T")[0];
-  currentCar = carsData[today];
-  loadPhoto();
-}
-
-// Load photos
-function loadPhoto() {
-  if (currentPhotoIndex >= currentCar.photos.length) {
-    feedback.textContent = `Game over! The car is a ${currentCar.make} ${currentCar.model} ${currentCar.trim} (${currentCar.year}).`;
-    return;
-  }
-  photoContainer.src = currentCar.photos[currentPhotoIndex];
-}
-
-// Check guess
-function checkGuess() {
-  const guessMake = guessMakeInput.value.trim().toLowerCase();
-  const guessModel = guessModelInput.value.trim().toLowerCase();
-  const guessTrim = guessTrimInput.value.trim().toLowerCase();
-  const guessYear = parseInt(guessYearInput.value.trim());
-
-  if (!correctGuesses.make && guessMake === currentCar.make.toLowerCase()) correctGuesses.make = true;
-  if (!correctGuesses.model && guessModel === currentCar.model.toLowerCase()) correctGuesses.model = true;
-  if (!correctGuesses.trim && guessTrim === currentCar.trim.toLowerCase()) correctGuesses.trim = true;
-  if (!correctGuesses.year && guessYear === currentCar.year) correctGuesses.year = true;
-
-  updateSavedAnswers();
-
-  if (Object.values(correctGuesses).every(Boolean)) {
-    feedback.textContent = `Correct! It's a ${currentCar.make} ${currentCar.model} ${currentCar.trim} (${currentCar.year}).`;
-  } else {
-    currentPhotoIndex++;
-    loadPhoto();
-  }
-}
-
-// Update saved answers
-function updateSavedAnswers() {
-  savedAnswers.textContent = `Saved Answers: ${correctGuesses.make ? currentCar.make : "?"} ${correctGuesses.model ? currentCar.model : "?"} ${correctGuesses.trim ? currentCar.trim : "?"} (${correctGuesses.year ? currentCar.year : "?"})`;
-}
-
-// Populate calendar
-function populateCalendar() {
-  console.log("Populating calendar..."); // Debug
-  console.log("carsData:", carsData);
-
-  calendar.innerHTML = ""; // Clear previous entries
-  Object.keys(carsData).forEach((date) => {
-    const dateDiv = document.createElement("div");
-    dateDiv.textContent = date;
-    dateDiv.classList.add("date-item"); // Optional styling
-    dateDiv.addEventListener("click", () => {
-      console.log(`Loading car for ${date}`); // Debug
-      loadArchivedCar(date);
-      archiveModal.classList.add("hidden"); // Close modal
-    });
-    calendar.appendChild(dateDiv);
+// Load the game data
+fetch('cars.json')
+  .then(response => response.json())
+  .then(data => {
+    currentGame = data[currentDate];
+    if (!currentGame) {
+      document.getElementById('feedback').textContent = "No game for today.";
+      return;
+    }
+    loadGame();
   });
+
+function loadGame() {
+  document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
 }
 
-// Load archived car
-function loadArchivedCar(date) {
-  currentCar = carsData[date];
-  currentPhotoIndex = 0;
-  correctGuesses = { make: false, model: false, trim: false, year: false };
-  updateSavedAnswers();
-  loadPhoto();
+// Handle guess submission
+document.getElementById('submit-guess').addEventListener('click', () => {
+  const make = document.getElementById('make').value.trim();
+  const model = document.getElementById('model').value.trim();
+  const year = document.getElementById('year').value.trim();
+  const trim = document.getElementById('trim').value.trim();
+
+  let feedback = "";
+  if (make === currentGame.make) {
+    guesses.make = make;
+    feedback += "Make correct! ";
+  }
+  if (model === currentGame.model) {
+    guesses.model = model;
+    feedback += "Model correct! ";
+  }
+  if (parseInt(year) === currentGame.year) {
+    guesses.year = year;
+    feedback += "Year correct! ";
+  }
+  if (trim === currentGame.trim) {
+    guesses.trim = trim;
+    feedback += "Trim correct!";
+  }
+
+  if (feedback) {
+    document.getElementById('feedback').textContent = feedback;
+  } else {
+    document.getElementById('feedback').textContent = "Try again!";
+  }
+
+  // Check if all guesses are correct
+  if (Object.values(guesses).every(value => value)) {
+    document.getElementById('feedback').textContent = "You win! 🎉";
+  }
+});
+
+// Next image
+document.getElementById('next-image').addEventListener('click', () => {
+  currentImageIndex = Math.min(currentImageIndex + 1, currentGame.photos.length - 1);
+  document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
+});
+
+// Archive button
+document.getElementById('view-archive').addEventListener('click', () => {
+  document.getElementById('archive-modal').classList.remove('hidden');
+  loadArchive();
+});
+
+// Close archive
+document.getElementById('close-archive').addEventListener('click', () => {
+  document.getElementById('archive-modal').classList.add('hidden');
+});
+
+// Load archive
+function loadArchive() {
+  fetch('cars.json')
+    .then(response => response.json())
+    .then(data => {
+      const archiveGrid = document.getElementById('archive-grid');
+      archiveGrid.innerHTML = ""; // Clear previous grid
+      Object.keys(data).forEach(date => {
+        const dateDiv = document.createElement('div');
+        dateDiv.textContent = date;
+        dateDiv.addEventListener('click', () => viewArchivedGame(data[date]));
+        archiveGrid.appendChild(dateDiv);
+      });
+    });
 }
 
-// Open and close archive modal
-archiveButton.addEventListener("click", () => {
-  console.log("Archive button clicked"); // Debug
-  populateCalendar();
-  archiveModal.classList.remove("hidden");
-});
-
-closeArchive.addEventListener("click", () => {
-  console.log("Close button clicked!"); // Debug
-  archiveModal.classList.add("hidden");
-});
-
-// Initialize
-fetchCars();
+// View archived game
+function viewArchivedGame(game) {
+  alert(`Game for ${game.make} ${game.model} (${game.year} ${game.trim})`);
+}
