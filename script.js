@@ -1,8 +1,10 @@
-let currentDate = new Date().toISOString().split('T')[0];
+let currentDate = localDate;
 let currentGame;
 let currentImageIndex = 0;
 let guesses = { make: "", model: "", year: "", trim: "" };
 let isArchiveMode = false; // To track whether we're in archive mode
+let today = new Date();
+let localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
 
 // Load the game data
 fetch('cars.json')
