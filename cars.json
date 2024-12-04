@@ -1,32 +1,47 @@
 {
+  "2024-12-05": {
+    "make": "Ferrari",
+    "model": "812",
+    "year": 2021,
+    "trim": "GTS",
+    "photos": [
+      "photos/2024-12-05/2024-12-05-1.jpeg",
+      "photos/2024-12-05/2024-12-05-2.jpeg",
+      "photos/2024-12-05/2024-12-05-3.jpeg",
+      "photos/2024-12-05/2024-12-05-4.jpeg",
+      "photos/2024-12-05/2024-12-05-full.jpeg"
+    ],
+    "credits": "Photos by @718.photos on Instagram"
+  },
+
   "2024-12-04": {
     "make": "Porsche",
     "model": "Carrera GT",
     "year": 2005,
     "trim": null,
     "photos": [
-      "photos/2024-12-04-1.jpeg",
-      "photos/2024-12-04-2.jpeg",
-      "photos/2024-12-04-3.jpeg",
-      "photos/2024-12-04-4.jpeg",
-      "photos/2024-12-04-full.jpeg"
+      "photos/2024-12-04/2024-12-04-1.jpeg",
+      "photos/2024-12-04/2024-12-04-2.jpeg",
+      "photos/2024-12-04/2024-12-04-3.jpeg",
+      "photos/2024-12-04/2024-12-04-4.jpeg",
+      "photos/2024-12-04/2024-12-04-full.jpeg"
     ],
-    "credits": "Photos by @Gavinautomotive on instagram"
+    "credits": "Photos by @Gavinautomotive on Instagram"
   },
 
   "2024-12-03": {
-    "make": "Audi",
-    "model": "R8",
-    "year": 2018,
-    "trim": "V10 Plus",
+    "make": "BMW",
+    "model": "M4",
+    "year": 2023,
+    "trim": "Competition",
     "photos": [
-      "photos/2024-12-03-1.png",
-      "photos/2024-12-03-2.png",
-      "photos/2024-12-03-3.png",
-      "photos/2024-12-03-4.png",
-      "photos/2024-12-03-full.png"
+      "photos/2024-12-03/2024-12-03-1.jpeg",
+      "photos/2024-12-03/2024-12-03-2.jpeg",
+      "photos/2024-12-03/2024-12-03-3.jpeg",
+      "photos/2024-12-03/2024-12-03-4.jpeg",
+      "photos/2024-12-03/2024-12-03-full.jpeg"
     ],
-    "credits": "Photos by @jolia.mx5 on Instagram"
+    "credits": "Photos by @718.photos on Instagram"
   },
 
   "2024-11-26": {
@@ -35,11 +50,11 @@
     "year": 2022,
     "trim": "STO",
     "photos": [
-      "photos/2024-11-26-1.png",
-      "photos/2024-11-26-2.png",
-      "photos/2024-11-26-3.png",
-      "photos/2024-11-26-4.png",
-      "photos/2024-11-26-full.png"
+      "photos/2024-11-26/2024-11-26-1.png",
+      "photos/2024-11-26/2024-11-26-2.png",
+      "photos/2024-11-26/2024-11-26-3.png",
+      "photos/2024-11-26/2024-11-26-4.png",
+      "photos/2024-11-26/2024-11-26-full.png"
     ],
     "credits": "Photos by @jolia.mx5 on Instagram"
   }
