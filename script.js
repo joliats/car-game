@@ -104,7 +104,7 @@ function endGame(playerWon) {
   document.getElementById('guess-container').style.display = "none";
 
   let feedbackMessage = playerWon
-    ? "Good job you win! Check out the previous games."
+    ? "You win! Check out the previous games."
     : "Out of guesses! Check out the previous games.";
     
   feedbackMessage += `<br><strong>Correct Answers:</strong><br>
