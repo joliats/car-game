@@ -1,4 +1,6 @@
-let currentDate = new Date().toISOString().split('T')[0];
+let today = new Date();
+let localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+let currentDate = localDate;
 let currentGame;
 let currentImageIndex = 0;
 let guesses = { make: "", model: "", year: "", trim: "" };
@@ -102,8 +104,8 @@ function endGame(playerWon) {
   document.getElementById('guess-container').style.display = "none";
 
   let feedbackMessage = playerWon
-    ? "Good job you win! Check out the other games."
-    : "Out of guesses! Check out the other games.";
+    ? "Good job you win! Check out the previous games."
+    : "Out of guesses! Check out the previous games.";
     
   feedbackMessage += `<br><strong>Correct Answers:</strong><br>
     Make: ${currentGame.make}<br>
