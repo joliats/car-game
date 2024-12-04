@@ -1,4 +1,19 @@
 {
+  "2024-12-04": {
+    "make": "Porsche",
+    "model": "Carrera GT",
+    "year": 2005,
+    "trim": null,
+    "photos": [
+      "photos/2024-12-04-1.jpeg",
+      "photos/2024-12-04-2.jpeg",
+      "photos/2024-12-04-3.jpeg",
+      "photos/2024-12-04-4.jpeg",
+      "photos/2024-12-04-full.jpeg"
+    ],
+    "credits": "Photos by @Gavinautomotive on instagram"
+  },
+
   "2024-12-03": {
     "make": "Audi",
     "model": "R8",
@@ -11,8 +26,9 @@
       "photos/2024-12-03-4.png",
       "photos/2024-12-03-full.png"
     ],
-    "credits": "Photo by @jolia.mx5 on Instagram"
+    "credits": "Photos by @jolia.mx5 on Instagram"
   },
+
   "2024-11-26": {
     "make": "Lamborghini",
     "model": "Huracan",
@@ -25,6 +41,6 @@
       "photos/2024-11-26-4.png",
       "photos/2024-11-26-full.png"
     ],
-    "credits": "Photo by @jolia.mx5 on Instagram"
+    "credits": "Photos by @jolia.mx5 on Instagram"
   }
 }
