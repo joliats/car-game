@@ -132,6 +132,29 @@ button:hover {
   color: #fff;
 }
 
+#button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adds spacing between the buttons */
+}
+
+#linktree-button {
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#linktree-button:hover {
+  background: #555;
+}
+
 
 button {
   padding: 10px 20px;

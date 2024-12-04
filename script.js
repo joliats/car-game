@@ -101,20 +101,26 @@ function nextImage() {
 // End the game and show the correct answers
 function endGame(playerWon) {
   document.getElementById('car-photo').src = currentGame.photos[currentGame.photos.length - 1]; // Show full image
-  document.getElementById('guess-container').style.display = "none";
+  document.getElementById('guess-container').style.display = "none"; // Hide the input fields
 
   let feedbackMessage = playerWon
-    ? "You win! Check out the previous games."
-    : "Out of guesses! Check out the previous games.";
-    
+    ? "Good job you win! Check out the other games."
+    : "Out of guesses! Check out the other games.";
+
   feedbackMessage += `<br><strong>Correct Answers:</strong><br>
     Make: ${currentGame.make}<br>
     Model: ${currentGame.model}<br>
     Year: ${currentGame.year}<br>
     Trim: ${currentGame.trim}`;
 
+  // Add photographer credits if available
+  if (currentGame.credits) {
+    feedbackMessage += `<br><small>${currentGame.credits}</small>`;
+  }
+
   document.getElementById('feedback').innerHTML = feedbackMessage; // Display feedback with correct answers
 }
+
 
 // Archive Button Logic
 function setupArchive(data) {
