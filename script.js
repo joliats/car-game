@@ -63,6 +63,7 @@ function resetInputFields() {
   document.getElementById('year').value = "";
   document.getElementById('trim').value = "";
 }
+
 document.getElementById('submit-guess').addEventListener('click', () => {
   const make = document.getElementById('make').value.trim().toLowerCase();
   const model = document.getElementById('model').value.trim().toLowerCase();
@@ -78,10 +79,13 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     guesses.model = currentGame.model;
     document.getElementById('model').style.backgroundColor = "lightgreen";
   }
-  if (parseInt(year) === currentGame.year) {
-    guesses.year = currentGame.year;
+
+  // Check if the year is one of the possible correct years
+  if (Array.isArray(currentGame.year) && currentGame.year.includes(parseInt(year))) {
+    guesses.year = year; // Set the guessed year (as string for consistency)
     document.getElementById('year').style.backgroundColor = "lightgreen";
   }
+
   if (trim === (currentGame.trim || "").toLowerCase()) {
     guesses.trim = currentGame.trim;
     document.getElementById('trim').style.backgroundColor = "lightgreen";
@@ -93,7 +97,7 @@ document.getElementById('submit-guess').addEventListener('click', () => {
   if (
     guesses.make === currentGame.make &&
     guesses.model === currentGame.model &&
-    guesses.year === currentGame.year &&
+    parseInt(guesses.year) === currentGame.year.find(y => y === parseInt(guesses.year)) &&
     (guesses.trim === currentGame.trim || currentGame.trim === null)
   ) {
     endGame(true); // Win condition
@@ -103,6 +107,7 @@ document.getElementById('submit-guess').addEventListener('click', () => {
   // Move to the next image if not all guesses are correct
   nextImage();
 });
+
 
 
 

@@ -1,4 +1,19 @@
 {
+  "2024-12-06": {
+    "make": "Volkswagen",
+    "model": "Golf",
+    "year": 2023,
+    "trim": "R",
+    "photos": [
+      "photos/2024-12-06/2024-12-06-1.jpeg",
+      "photos/2024-12-06/2024-12-06-2.jpeg",
+      "photos/2024-12-06/2024-12-06-3.jpeg",
+      "photos/2024-12-06/2024-12-06-4.jpeg",
+      "photos/2024-12-06/2024-12-06-full.jpeg"
+    ],
+    "credits": "Photography by @718.photos on Instagram"
+  },
+
   "2024-12-05": {
     "make": "Ferrari",
     "model": "812",
