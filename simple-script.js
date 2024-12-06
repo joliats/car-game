@@ -129,7 +129,7 @@ function endGame(playerWon) {
     Model: ${currentGame.model}<br>`;
 
   if (currentGame.credits) {
-    feedbackMessage += `<br><small>Credits: ${currentGame.credits}</small>`;
+    feedbackMessage += `<br><small> ${currentGame.credits}</small>`;
   }
 
   document.getElementById('feedback').innerHTML = feedbackMessage; // Display feedback with correct answers

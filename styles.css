@@ -1,219 +1,191 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Base styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #007bff, #6c63ff);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
 h1 {
-    margin: 10px 0; /* Reduces top and bottom margin to 10px, removes left and right margin */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .game-container {
-    text-align: center;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(199, 116, 116, 0.2);
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  #photo-container img {  
-    max-width: 100%;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-  
-  button#submit-guess {
-    display: block; /* Ensures the button takes up its own line */
-    margin: 10px auto; /* Centers the button horizontally */
-    padding: 10px 20px; /* Adds padding for better clickability */
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; /* Optional: Improves readability */
-  }
-  
-  button#submit-guess:hover {
-    background: #555; /* Subtle hover effect */
-  }
-  
-  #guess-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping to form rows */
-    justify-content: space-between; /* Ensures spacing between inputs */
-  }
-  
-  #guess-container input {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: calc(48% - 10px); /* Two inputs per row, accounting for margins */
-    box-sizing: border-box; /* Ensures padding is included in the width */
-  }
-  
-  #feedback {
-    font-weight: 400px;
-    margin-top: 0px;
-    font-size: 1rem;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  #archive-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
-  }
-  
-  .archive-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  .date-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .date-grid div {
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .date-grid div:hover {
-    background: #ddd;
-  }
-  
-  .date-grid div.selected {
-    background: #333;
-    color: #fff;
-  }
-  
-/* General button styling */
+  font-size: 1.8rem; /* Reduced size */
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-container {
+  background: #fff;
+  color: #333;
+  padding: 15px; /* Reduced padding */
+  border-radius: 15px; /* Slightly less rounded */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 360px; /* Smaller max-width */
+  text-align: center;
+}
+
+#photo-container img {
+  max-width: 100%;
+  border-radius: 8px; /* Smaller rounding */
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#guess-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px; /* Reduced gap */
+  margin: 10px 0;
+}
+
+#guess-container input {
+  padding: 8px; /* Smaller padding */
+  border: 1px solid #ddd;
+  border-radius: 6px; /* Smaller rounding */
+  width: calc(48% - 8px); /* Adjusted width for spacing */
+  font-size: 14px; /* Reduced font size */
+}
+
+#guess-container input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
 button,
 a.button {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: system-ui, sans-serif;
+  padding: 10px 16px; /* Reduced padding */
+  font-size: 14px; /* Smaller font size */
+  font-weight: 600;
   color: #fff;
   background: #333;
   border: none;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
+  border-radius: 6px; /* Smaller rounding */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 button:hover,
 a.button:hover {
-  background: #555;
+  background: #007bff;
   transform: scale(1.05);
 }
 
-  /* Advanced Mode button specific styling */
-  #advanced-button {
-    background: #007bff; /* Blue color */
-    font-size: 18px;
-    padding: 12px 24px;
-    border-radius: 8px;
-  }
-  
-  #advanced-button:hover {
-    background: #0056b3; /* Darker blue on hover */
-  }
-  
-  /* Container for buttons */
-  #button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Adds consistent spacing between all buttons */
-  }
-  
-/* Specific adjustments for "View Archive" */
-  #view-archive {
-    font-size: 16px;
-    padding: 10px 20px;
-    background: #333;
-  }
-  
-  #view-archive:hover {
-    background: #555;
-  }
+#advanced-button {
+  background: #6c63ff;
+}
 
-/* Linktree button */
-  #linktree-button {
-    background: #444;
+#advanced-button:hover {
+  background: #4e47cc;
+}
+
+#linktree-button {
+    background: none; /* Remove box styling */
+    color: #828282; /* Coral color for the text */
+    font-size: 14px; /* Slightly larger text */
+    font-weight: bold;
+    text-decoration: underline; /* Underlined text */
+    padding: 0; /* Remove padding */
+    border: none; /* Remove borders */
+    cursor: pointer; /* Keep pointer for clickable effect */
+    transition: color 0.3s ease;
   }
   
-  #linktree-button:hover {
-    background: #666;
-  }
+#linktree-button:hover {
+    color: #e06b40; /* Slightly darker coral on hover */
+}
   
   
-  button {
-    padding: 10px 20px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #555;
-  } 
-  
-  .hidden {
-    display: none;
-  }
-  
-  #archive-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+#button-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 10;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
   }
   
-  #archive-modal.hidden {
-    display: none; /* Ensure modal is invisible */
-  }
+
+#feedback {
+  font-size: 0.9rem; /* Smaller font size */
+  margin-top: 10px; /* Reduced spacing */
+  color: #333;
+}
+
+/* Archive Modal */
+#archive-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#archive-modal.hidden {
+  display: none;
+}
+
+.archive-content {
+  background: #fff;
+  color: #333;
+  padding: 15px; /* Reduced padding */
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 360px; /* Reduced max-width */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjusted for smaller items */
+  gap: 8px; /* Reduced gap */
+  margin-top: 15px;
+}
+
+.date-grid div {
+  background: #007bff;
+  color: #fff;
+  padding: 8px; /* Reduced padding */
+  border-radius: 4px; /* Smaller rounding */
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.date-grid div:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.date-grid div.selected {
+  background: #4e47cc;
+}
+
+button#close-archive {
+  background: #333;
+  color: #fff;
+  margin-top: 15px; /* Reduced margin */
+  padding: 8px 16px; /* Reduced padding */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#close-archive:hover {
+  background: #555;
+}
