@@ -22,6 +22,10 @@ function setupGame(data, date) {
   }
   currentImageIndex = 0;
   guesses = { make: "", model: "", year: "", trim: "" };
+  
+  // Reset input fields and unlock them
+  resetInputFields();
+
   loadGame();
 }
 
@@ -34,16 +38,16 @@ function loadGame() {
 
 // Reset input fields and styles
 function resetInputFields() {
-  document.getElementById('make').style.backgroundColor = "";
-  document.getElementById('model').style.backgroundColor = "";
-  document.getElementById('year').style.backgroundColor = "";
-  document.getElementById('trim').style.backgroundColor = "";
+  const inputs = ['make', 'model', 'year', 'trim'];
 
-  document.getElementById('make').value = "";
-  document.getElementById('model').value = "";
-  document.getElementById('year').value = "";
-  document.getElementById('trim').value = "";
+  inputs.forEach((inputId) => {
+    const input = document.getElementById(inputId);
+    input.style.backgroundColor = ""; // Reset background color
+    input.value = ""; // Clear input value
+    input.disabled = false; // Re-enable input
+  });
 }
+
 
 document.getElementById('submit-guess').addEventListener('click', () => {
   const make = document.getElementById('make').value.trim().toLowerCase();
@@ -51,43 +55,55 @@ document.getElementById('submit-guess').addEventListener('click', () => {
   const year = document.getElementById('year').value.trim();
   const trim = document.getElementById('trim').value.trim().toLowerCase();
 
-  // Update feedback and field colors
+  let allCorrect = true; // Flag to track if all fields are correct
+
+  // Update feedback, field colors, and lock inputs for correct guesses
   if (make === currentGame.make.toLowerCase()) {
     guesses.make = currentGame.make;
     document.getElementById('make').style.backgroundColor = "lightgreen";
+    document.getElementById('make').disabled = true; // Lock input
+  } else {
+    allCorrect = false; // Not all fields are correct
   }
+
   if (model === currentGame.model.toLowerCase()) {
     guesses.model = currentGame.model;
     document.getElementById('model').style.backgroundColor = "lightgreen";
+    document.getElementById('model').disabled = true; // Lock input
+  } else {
+    allCorrect = false;
   }
 
-  // Check if the year is one of the possible correct years
-  if (Array.isArray(currentGame.year) && currentGame.year.includes(parseInt(year))) {
-    guesses.year = year; // Set the guessed year (as string for consistency)
+  if (parseInt(year) === currentGame.year) {
+    guesses.year = year; // Save the guessed year as a string for consistency
     document.getElementById('year').style.backgroundColor = "lightgreen";
+    document.getElementById('year').disabled = true; // Lock input
+  } else {
+    allCorrect = false;
   }
+  
 
   if (trim === (currentGame.trim || "").toLowerCase()) {
     guesses.trim = currentGame.trim;
     document.getElementById('trim').style.backgroundColor = "lightgreen";
+    document.getElementById('trim').disabled = true; // Lock input
+  } else {
+    allCorrect = false;
   }
 
   console.log("Guesses so far:", guesses); // Debugging
 
   // Check if all guesses are correct
-  if (
-    guesses.make === currentGame.make &&
-    guesses.model === currentGame.model &&
-    parseInt(guesses.year) === currentGame.year.find(y => y === parseInt(guesses.year)) &&
-    (guesses.trim === currentGame.trim || currentGame.trim === null)
-  ) {
+  if (allCorrect) {
     endGame(true); // Win condition
-    return;
+    return; // Stop further actions if the game ends
   }
 
-  // Always move to the next image
+  // Move to the next image
   nextImage();
 });
+
+
 
 
 
