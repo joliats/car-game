@@ -2,31 +2,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Carspotto</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268847625390032" crossorigin="anonymous"></script>
-</head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268847625390032"
+     crossorigin="anonymous"></script>
 <body>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2268847625390032"
+     crossorigin="anonymous"></script>  
+     <!-- side ads -->
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-2268847625390032"
+data-ad-slot="3565504240"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <div class="game-container">
     <h1>Carspotto</h1>
     <div id="photo-container">
       <img id="car-photo" src="" alt="Car Image">
     </div>
     <div id="guess-container">
-      <input type="text" id="make" placeholder="Make" autocomplete="off" list="make-options">
-      <datalist id="make-options"></datalist>
-      
-      <input type="text" id="model" placeholder="Model" autocomplete="off" list="model-options">
-      <datalist id="model-options"></datalist>
-
+      <input type="text" id="make" placeholder="Make" autocomplete="off">
+      <input type="text" id="model" placeholder="Model" autocomplete="off">
+      <input type="number" id="year" placeholder="Year" autocomplete="off">
+      <input type="text" id="trim" placeholder="Trim" autocomplete="off">
       <button id="submit-guess">Submit Guess</button>
     </div>
     <p id="feedback"></p>
     <div id="button-container">
       <button id="view-archive">View Archive</button>
       <a href="https://linktr.ee/carspotto" id="linktree-button" target="_blank" rel="noopener noreferrer">Submit your photos</a>
-      <a href="/advanced/index.html" id="advanced-button">Advanced Mode</a>
     </div>
   </div>
 
@@ -39,6 +49,7 @@
     </div>
   </div>
 
-  <script src="simple-script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>

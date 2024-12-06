@@ -7,7 +7,7 @@ let guesses = { make: "", model: "", year: "", trim: "" };
 let isArchiveMode = false; // To track whether we're in archive mode
 
 // Load the game data
-fetch('cars.json')
+fetch('../cars.json')
   .then(response => response.json())
   .then(data => {
     setupGame(data, currentDate);
