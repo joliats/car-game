@@ -46,6 +46,14 @@ function resetInputFields() {
     input.value = ""; // Clear input value
     input.disabled = false; // Re-enable input
   });
+
+  const trimInput = document.getElementById('trim');
+  if (!currentGame.trim) {
+    trimInput.placeholder = "No trim levels"; // Set placeholder
+    trimInput.disabled = true; // Disable input
+  } else {
+    trimInput.placeholder = "Trim"; // Reset placeholder for enabled trim input
+  }
 }
 
 
@@ -140,7 +148,8 @@ function endGame(playerWon) {
     Make: ${currentGame.make}<br>
     Model: ${currentGame.model}<br>
     Year: ${currentGame.year}<br>
-    Trim: ${currentGame.trim}`;
+    Trim: ${currentGame.trim || "No trim levels"}`;
+    
 
   // Add photographer credits if available
   if (currentGame.credits) {
