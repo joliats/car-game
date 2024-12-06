@@ -4,10 +4,13 @@ let currentDate = localDate;
 let currentGame;
 let currentImageIndex = 0;
 let guesses = { make: "", model: "", year: "", trim: "" };
-let isArchiveMode = false; // To track whether we're in archive mode
+
+// Define paths for external files
+const carsJsonPath = '../cars.json'; // JSON file is outside the advanced folder
+const photosBasePath = '../';
 
 // Load the game data
-fetch('../cars.json')
+fetch(carsJsonPath)
   .then(response => response.json())
   .then(data => {
     setupGame(data, currentDate);
@@ -26,69 +29,87 @@ function setupGame(data, date) {
 
   // Check if trim is applicable
   const trimInput = document.getElementById('trim');
-  if (currentGame.trim === null || currentGame.trim === "") {
-    trimInput.style.display = "none"; // Hide the trim input box
+  if (!currentGame.trim) {
+    trimInput.style.display = "none"; // Hide trim input if not applicable
     guesses.trim = null; // Mark trim as not required
   } else {
-    trimInput.style.display = "block"; // Show the trim input box
-    guesses.trim = ""; // Reset for new game
+    trimInput.style.display = "block"; // Show trim input if applicable
+    guesses.trim = ""; // Reset trim guess
   }
-
-  // Always show other input fields (e.g., year, make, model)
-  document.getElementById('make').style.display = "block";
-  document.getElementById('model').style.display = "block";
-  document.getElementById('year').style.display = "block";
 
   loadGame();
 }
 
-
-
 function loadGame() {
-  document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
+  if (!currentGame.photos || currentImageIndex >= currentGame.photos.length) {
+    console.error("No photos available for the current game.");
+    return;
+  }
+
+  const photoPath = `${photosBasePath}${currentGame.photos[currentImageIndex]}`;
+  console.log("Loading Photo:", photoPath); // Debugging
+  document.getElementById('car-photo').src = photoPath;
+
   document.getElementById('guess-container').style.display = "flex";
   document.getElementById('feedback').textContent = "";
-  resetInputFields();
+  resetIncorrectFields();
 }
 
-// Reset input fields and styles
-function resetInputFields() {
-  document.getElementById('make').style.backgroundColor = "";
-  document.getElementById('model').style.backgroundColor = "";
-  document.getElementById('year').style.backgroundColor = "";
-  document.getElementById('trim').style.backgroundColor = "";
-
-  document.getElementById('make').value = "";
-  document.getElementById('model').value = "";
-  document.getElementById('year').value = "";
-  document.getElementById('trim').value = "";
+function resetIncorrectFields() {
+  // Reset only fields that are not already correct
+  if (!guesses.make) {
+    document.getElementById('make').value = "";
+    document.getElementById('make').style.backgroundColor = "";
+    document.getElementById('make').disabled = false;
+  }
+  if (!guesses.model) {
+    document.getElementById('model').value = "";
+    document.getElementById('model').style.backgroundColor = "";
+    document.getElementById('model').disabled = false;
+  }
+  if (!guesses.year) {
+    document.getElementById('year').value = "";
+    document.getElementById('year').style.backgroundColor = "";
+    document.getElementById('year').disabled = false;
+  }
+  if (!guesses.trim) {
+    document.getElementById('trim').value = "";
+    document.getElementById('trim').style.backgroundColor = "";
+    document.getElementById('trim').disabled = false;
+  }
 }
 
 document.getElementById('submit-guess').addEventListener('click', () => {
-  const make = document.getElementById('make').value.trim().toLowerCase();
-  const model = document.getElementById('model').value.trim().toLowerCase();
-  const year = document.getElementById('year').value.trim();
-  const trim = document.getElementById('trim').value.trim().toLowerCase();
+  const makeInput = document.getElementById('make');
+  const modelInput = document.getElementById('model');
+  const yearInput = document.getElementById('year');
+  const trimInput = document.getElementById('trim');
+
+  const make = makeInput.value.trim().toLowerCase();
+  const model = modelInput.value.trim().toLowerCase();
+  const year = yearInput.value.trim();
+  const trim = trimInput.value.trim().toLowerCase();
 
   // Update guesses if the input matches the currentGame values
-  if (make === currentGame.make.toLowerCase()) {
+  if (!guesses.make && make === currentGame.make.toLowerCase()) {
     guesses.make = currentGame.make;
-    document.getElementById('make').style.backgroundColor = "lightgreen";
+    makeInput.style.backgroundColor = "lightgreen";
+    makeInput.disabled = true; // Lock correct input
   }
-  if (model === currentGame.model.toLowerCase()) {
+  if (!guesses.model && model === currentGame.model.toLowerCase()) {
     guesses.model = currentGame.model;
-    document.getElementById('model').style.backgroundColor = "lightgreen";
+    modelInput.style.backgroundColor = "lightgreen";
+    modelInput.disabled = true; // Lock correct input
   }
-
-  // Check if the year is one of the possible correct years
-  if (Array.isArray(currentGame.year) && currentGame.year.includes(parseInt(year))) {
-    guesses.year = year; // Set the guessed year (as string for consistency)
-    document.getElementById('year').style.backgroundColor = "lightgreen";
+  if (!guesses.year && Array.isArray(currentGame.year) && currentGame.year.includes(parseInt(year))) {
+    guesses.year = year;
+    yearInput.style.backgroundColor = "lightgreen";
+    yearInput.disabled = true; // Lock correct input
   }
-
-  if (trim === (currentGame.trim || "").toLowerCase()) {
+  if (!guesses.trim && trim === (currentGame.trim || "").toLowerCase()) {
     guesses.trim = currentGame.trim;
-    document.getElementById('trim').style.backgroundColor = "lightgreen";
+    trimInput.style.backgroundColor = "lightgreen";
+    trimInput.disabled = true; // Lock correct input
   }
 
   console.log("Guesses so far:", guesses); // Debugging
@@ -101,36 +122,27 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     (guesses.trim === currentGame.trim || currentGame.trim === null)
   ) {
     endGame(true); // Win condition
-    return;
+  } else {
+    nextImage(); // Move to the next image
   }
-
-  // Move to the next image if not all guesses are correct
-  nextImage();
 });
-
-
-
 
 function nextImage() {
   currentImageIndex++;
-  console.log("Moving to the next image. Current Index:", currentImageIndex); // Debugging
-
   if (currentImageIndex < currentGame.photos.length) {
-    // Load the next image in the sequence
-    document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
+    const photoPath = `${photosBasePath}${currentGame.photos[currentImageIndex]}`;
+    console.log("Next Photo:", photoPath); // Debugging
+    document.getElementById('car-photo').src = photoPath;
+    resetIncorrectFields(); // Reset incorrect fields for the new image
   } else {
-    // End the game when all images are used
-    console.log("No more images, ending the game."); // Debugging
-    endGame(false);
+    endGame(false); // End the game when all images are used
   }
 }
 
-
-
-// End the game and show the correct answers
 function endGame(playerWon) {
-  document.getElementById('car-photo').src = currentGame.photos[currentGame.photos.length - 1]; // Show full image
-  document.getElementById('guess-container').style.display = "none"; // Hide the input fields
+  const finalPhotoPath = `${photosBasePath}${currentGame.photos[currentGame.photos.length - 1]}`;
+  document.getElementById('car-photo').src = finalPhotoPath; // Show the full image
+  document.getElementById('guess-container').style.display = "none";
 
   let feedbackMessage = playerWon
     ? "Good job you win! Check out the other games."
@@ -149,12 +161,9 @@ function endGame(playerWon) {
     feedbackMessage += `<br><small>Credits: ${currentGame.credits}</small>`;
   }
 
-  document.getElementById('feedback').innerHTML = feedbackMessage; // Display feedback with correct answers
+  document.getElementById('feedback').innerHTML = feedbackMessage;
 }
 
-
-
-// Archive Button Logic
 function setupArchive(data) {
   document.getElementById('view-archive').addEventListener('click', () => {
     document.getElementById('archive-modal').classList.remove('hidden');
