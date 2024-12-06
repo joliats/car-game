@@ -20,29 +20,10 @@ function setupGame(data, date) {
     document.getElementById('feedback').textContent = "No game for this date.";
     return;
   }
-
   currentImageIndex = 0;
   guesses = { make: "", model: "", year: "", trim: "" };
-
-  // Check if trim is applicable
-  const trimInput = document.getElementById('trim');
-  if (currentGame.trim === null || currentGame.trim === "") {
-    trimInput.style.display = "none"; // Hide the trim input box
-    guesses.trim = null; // Mark trim as not required
-  } else {
-    trimInput.style.display = "block"; // Show the trim input box
-    guesses.trim = ""; // Reset for new game
-  }
-
-  // Always show other input fields (e.g., year, make, model)
-  document.getElementById('make').style.display = "block";
-  document.getElementById('model').style.display = "block";
-  document.getElementById('year').style.display = "block";
-
   loadGame();
 }
-
-
 
 function loadGame() {
   document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
@@ -70,7 +51,7 @@ document.getElementById('submit-guess').addEventListener('click', () => {
   const year = document.getElementById('year').value.trim();
   const trim = document.getElementById('trim').value.trim().toLowerCase();
 
-  // Update guesses if the input matches the currentGame values
+  // Update feedback and field colors
   if (make === currentGame.make.toLowerCase()) {
     guesses.make = currentGame.make;
     document.getElementById('make').style.backgroundColor = "lightgreen";
@@ -85,12 +66,17 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     guesses.year = year; // Set the guessed year (as string for consistency)
     document.getElementById('year').style.backgroundColor = "lightgreen";
   }
+<<<<<<< HEAD
 
   if (trim === (currentGame.trim || "").toLowerCase()) {
+=======
+  if (trim === currentGame.trim.toLowerCase()) {
+>>>>>>> parent of db13836 (12/4/24)
     guesses.trim = currentGame.trim;
     document.getElementById('trim').style.backgroundColor = "lightgreen";
   }
 
+<<<<<<< HEAD
   console.log("Guesses so far:", guesses); // Debugging
 
   // Check if all guesses are correct
@@ -101,30 +87,41 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     (guesses.trim === currentGame.trim || currentGame.trim === null)
   ) {
     endGame(true); // Win condition
+=======
+  // Check if the player has won
+  if (Object.values(guesses).every(value => value)) {
+    endGame(true);
+>>>>>>> parent of db13836 (12/4/24)
     return;
   }
 
-  // Move to the next image if not all guesses are correct
+  // Always move to the next image
   nextImage();
 });
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> parent of db13836 (12/4/24)
 function nextImage() {
   currentImageIndex++;
-  console.log("Moving to the next image. Current Index:", currentImageIndex); // Debugging
-
   if (currentImageIndex < currentGame.photos.length) {
-    // Load the next image in the sequence
+    // Load the next image (including the full image as the last one in the sequence)
     document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
-  } else {
-    // End the game when all images are used
-    console.log("No more images, ending the game."); // Debugging
+  }
+
+  if (currentImageIndex === currentGame.photos.length - 1) {
+    // If it's the full image step, check if it's the last chance
+    document.getElementById('feedback').textContent = "This is your last chance to guess!";
+  }
+
+  if (currentImageIndex >= currentGame.photos.length) {
+    // If all images are used, end the game
     endGame(false);
   }
 }
-
 
 
 // End the game and show the correct answers
@@ -139,19 +136,16 @@ function endGame(playerWon) {
   feedbackMessage += `<br><strong>Correct Answers:</strong><br>
     Make: ${currentGame.make}<br>
     Model: ${currentGame.model}<br>
-    Year: ${currentGame.year}`;
+    Year: ${currentGame.year}<br>
+    Trim: ${currentGame.trim}`;
 
-  if (currentGame.trim) {
-    feedbackMessage += `<br>Trim: ${currentGame.trim}`;
-  }
-
+  // Add photographer credits if available
   if (currentGame.credits) {
-    feedbackMessage += `<br><small>Credits: ${currentGame.credits}</small>`;
+    feedbackMessage += `<br><small>${currentGame.credits}</small>`;
   }
 
   document.getElementById('feedback').innerHTML = feedbackMessage; // Display feedback with correct answers
 }
-
 
 
 // Archive Button Logic

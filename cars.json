@@ -45,10 +45,17 @@
   },
 
   "2024-12-03": {
+<<<<<<< HEAD
     "make": "BMW",
     "model": "M4",
     "year": 2023,
     "trim": "Competition",
+=======
+    "make": "Audi",
+    "model": "R8",
+    "year": 2016,
+    "trim": "GT",
+>>>>>>> parent of db13836 (12/4/24)
     "photos": [
       "photos/2024-12-03/2024-12-03-1.jpeg",
       "photos/2024-12-03/2024-12-03-2.jpeg",
