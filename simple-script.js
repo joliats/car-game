@@ -3,8 +3,9 @@ let localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).to
 let currentDate = localDate;
 let currentGame;
 let currentImageIndex = 0;
-let guesses = { make: "", model: "", year: "", trim: "" };
-let isArchiveMode = false; // To track whether we're in archive mode
+let guesses = { make: "", model: "" };
+let makes = [];
+let models = [];
 
 // Load the game data
 fetch('cars.json')
@@ -22,94 +23,84 @@ function setupGame(data, date) {
   }
 
   currentImageIndex = 0;
-  guesses = { make: "", model: "", year: "", trim: "" };
+  guesses = { make: "", model: "" };
 
-  // Check if trim is applicable
-  const trimInput = document.getElementById('trim');
-  if (currentGame.trim === null || currentGame.trim === "") {
-    trimInput.style.display = "none"; // Hide the trim input box
-    guesses.trim = null; // Mark trim as not required
-  } else {
-    trimInput.style.display = "block"; // Show the trim input box
-    guesses.trim = ""; // Reset for new game
-  }
+  // Reset input fields and styles
+  resetInputFields();
 
-  // Always show other input fields (e.g., year, make, model)
-  document.getElementById('make').style.display = "block";
-  document.getElementById('model').style.display = "block";
-  document.getElementById('year').style.display = "block";
+  // Populate makes and models arrays
+  makes = [...new Set(Object.values(data).map(car => car.make))];
+  models = [...new Set(Object.values(data).map(car => car.model))];
 
   loadGame();
+  populateAutocompleteOptions();
 }
-
-
 
 function loadGame() {
   document.getElementById('car-photo').src = currentGame.photos[currentImageIndex];
   document.getElementById('guess-container').style.display = "flex";
   document.getElementById('feedback').textContent = "";
-  resetInputFields();
 }
 
-// Reset input fields and styles
 function resetInputFields() {
-  document.getElementById('make').style.backgroundColor = "";
-  document.getElementById('model').style.backgroundColor = "";
-  document.getElementById('year').style.backgroundColor = "";
-  document.getElementById('trim').style.backgroundColor = "";
+  const makeInput = document.getElementById('make');
+  const modelInput = document.getElementById('model');
 
-  document.getElementById('make').value = "";
-  document.getElementById('model').value = "";
-  document.getElementById('year').value = "";
-  document.getElementById('trim').value = "";
+  makeInput.value = "";
+  modelInput.value = "";
+  makeInput.style.backgroundColor = "";
+  modelInput.style.backgroundColor = "";
+  makeInput.disabled = false;
+  modelInput.disabled = false;
+}
+
+function populateAutocompleteOptions() {
+  const makeOptions = document.getElementById('make-options');
+  const modelOptions = document.getElementById('model-options');
+
+  makeOptions.innerHTML = '';
+  makes.forEach(make => {
+    const option = document.createElement('option');
+    option.value = make;
+    makeOptions.appendChild(option);
+  });
+
+  modelOptions.innerHTML = '';
+  models.forEach(model => {
+    const option = document.createElement('option');
+    option.value = model;
+    modelOptions.appendChild(option);
+  });
 }
 
 document.getElementById('submit-guess').addEventListener('click', () => {
-  const make = document.getElementById('make').value.trim().toLowerCase();
-  const model = document.getElementById('model').value.trim().toLowerCase();
-  const year = document.getElementById('year').value.trim();
-  const trim = document.getElementById('trim').value.trim().toLowerCase();
+  const makeInput = document.getElementById('make');
+  const modelInput = document.getElementById('model');
+  const make = makeInput.value.trim().toLowerCase();
+  const model = modelInput.value.trim().toLowerCase();
 
   // Update guesses if the input matches the currentGame values
   if (make === currentGame.make.toLowerCase()) {
     guesses.make = currentGame.make;
-    document.getElementById('make').style.backgroundColor = "lightgreen";
+    makeInput.style.backgroundColor = "lightgreen";
+    makeInput.disabled = true; // Disable input once correct
   }
+
   if (model === currentGame.model.toLowerCase()) {
     guesses.model = currentGame.model;
-    document.getElementById('model').style.backgroundColor = "lightgreen";
-  }
-
-  // Check if the year is one of the possible correct years
-  if (Array.isArray(currentGame.year) && currentGame.year.includes(parseInt(year))) {
-    guesses.year = year; // Set the guessed year (as string for consistency)
-    document.getElementById('year').style.backgroundColor = "lightgreen";
-  }
-
-  if (trim === (currentGame.trim || "").toLowerCase()) {
-    guesses.trim = currentGame.trim;
-    document.getElementById('trim').style.backgroundColor = "lightgreen";
+    modelInput.style.backgroundColor = "lightgreen";
+    modelInput.disabled = true; // Disable input once correct
   }
 
   console.log("Guesses so far:", guesses); // Debugging
 
-  // Check if all guesses are correct
-  if (
-    guesses.make === currentGame.make &&
-    guesses.model === currentGame.model &&
-    parseInt(guesses.year) === currentGame.year.find(y => y === parseInt(guesses.year)) &&
-    (guesses.trim === currentGame.trim || currentGame.trim === null)
-  ) {
+  // Check if both guesses are correct
+  if (guesses.make === currentGame.make && guesses.model === currentGame.model) {
     endGame(true); // Win condition
-    return;
+  } else {
+    nextImage();
   }
-
-  // Move to the next image if not all guesses are correct
-  nextImage();
 });
-
-
-
 
 function nextImage() {
   currentImageIndex++;
@@ -125,9 +116,6 @@ function nextImage() {
   }
 }
 
-
-
-// End the game and show the correct answers
 function endGame(playerWon) {
   document.getElementById('car-photo').src = currentGame.photos[currentGame.photos.length - 1]; // Show full image
   document.getElementById('guess-container').style.display = "none"; // Hide the input fields
@@ -138,12 +126,7 @@ function endGame(playerWon) {
 
   feedbackMessage += `<br><strong>Correct Answers:</strong><br>
     Make: ${currentGame.make}<br>
-    Model: ${currentGame.model}<br>
-    Year: ${currentGame.year}`;
-
-  if (currentGame.trim) {
-    feedbackMessage += `<br>Trim: ${currentGame.trim}`;
-  }
+    Model: ${currentGame.model}<br>`;
 
   if (currentGame.credits) {
     feedbackMessage += `<br><small>Credits: ${currentGame.credits}</small>`;
@@ -152,9 +135,6 @@ function endGame(playerWon) {
   document.getElementById('feedback').innerHTML = feedbackMessage; // Display feedback with correct answers
 }
 
-
-
-// Archive Button Logic
 function setupArchive(data) {
   document.getElementById('view-archive').addEventListener('click', () => {
     document.getElementById('archive-modal').classList.remove('hidden');
