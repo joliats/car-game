@@ -66,17 +66,12 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     guesses.year = year; // Set the guessed year (as string for consistency)
     document.getElementById('year').style.backgroundColor = "lightgreen";
   }
-<<<<<<< HEAD
 
   if (trim === (currentGame.trim || "").toLowerCase()) {
-=======
-  if (trim === currentGame.trim.toLowerCase()) {
->>>>>>> parent of db13836 (12/4/24)
     guesses.trim = currentGame.trim;
     document.getElementById('trim').style.backgroundColor = "lightgreen";
   }
 
-<<<<<<< HEAD
   console.log("Guesses so far:", guesses); // Debugging
 
   // Check if all guesses are correct
@@ -87,11 +82,6 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     (guesses.trim === currentGame.trim || currentGame.trim === null)
   ) {
     endGame(true); // Win condition
-=======
-  // Check if the player has won
-  if (Object.values(guesses).every(value => value)) {
-    endGame(true);
->>>>>>> parent of db13836 (12/4/24)
     return;
   }
 
@@ -99,12 +89,9 @@ document.getElementById('submit-guess').addEventListener('click', () => {
   nextImage();
 });
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> parent of db13836 (12/4/24)
 function nextImage() {
   currentImageIndex++;
   if (currentImageIndex < currentGame.photos.length) {
