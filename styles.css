@@ -120,27 +120,67 @@ h1 {
     color: #fff;
   }
   
-  #button-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Adds spacing between the buttons */
+/* General button styling */
+button,
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: system-ui, sans-serif;
+  color: #fff;
+  background: #333;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+a.button:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+  /* Advanced Mode button specific styling */
+  #advanced-button {
+    background: #007bff; /* Blue color */
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
   }
   
-  #linktree-button {
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
+  #advanced-button:hover {
+    background: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Container for buttons */
+  #button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Adds consistent spacing between all buttons */
+  }
+  
+/* Specific adjustments for "View Archive" */
+  #view-archive {
     font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+  }
+  
+  #view-archive:hover {
+    background: #555;
+  }
+
+/* Linktree button */
+  #linktree-button {
+    background: #444;
   }
   
   #linktree-button:hover {
-    background: #555;
+    background: #666;
   }
   
   
