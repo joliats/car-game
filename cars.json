@@ -1,4 +1,19 @@
 {
+  "2024-12-07": {
+    "make": "Ford",
+    "model": "Mustang",
+    "year": 1967,
+    "trim": "GT500",
+    "photos": [
+      "photos/2024-12-06/2024-12-07-1.jpeg",
+      "photos/2024-12-06/2024-12-07-2.jpeg",
+      "photos/2024-12-06/2024-12-07-3.jpeg",
+      "photos/2024-12-06/2024-12-07-4.jpeg",
+      "photos/2024-12-06/2024-12-07-full.jpeg"
+    ],
+    "credits": "Photography by @718.photos on Instagram"
+  },
+
   "2024-12-06": {
     "make": "Volkswagen",
     "model": "Golf",
