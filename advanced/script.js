@@ -195,3 +195,13 @@ function loadArchive(data) {
     archiveGrid.appendChild(dateDiv);
   });
 }
+
+document.getElementById('help-button').addEventListener('click', () => {
+  const helpModal = document.getElementById('help-modal');
+  helpModal.classList.remove('hidden'); // Show the modal
+});
+
+document.getElementById('close-help').addEventListener('click', () => {
+  const helpModal = document.getElementById('help-modal');
+  helpModal.classList.add('hidden'); // Hide the modal
+});
