@@ -18,7 +18,7 @@ body {
 h1 {
   font-size: 1.8rem; /* Reduced size */
   margin: 15px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .game-container {
@@ -141,51 +141,90 @@ a.button:hover {
 }
 
 .archive-content {
-  background: #fff;
-  color: #333;
-  padding: 15px; /* Reduced padding */
-  border-radius: 10px;
-  text-align: center;
-  width: 90%;
-  max-width: 360px; /* Reduced max-width */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-}
+    background: #fff;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Ensure content stays contained */
+  }
 
 .date-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjusted for smaller items */
-  gap: 8px; /* Reduced gap */
-  margin-top: 15px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+gap: 8px;
+margin-top: 15px;
+max-height: 40vh;
+overflow-y: auto; /* Enable vertical scrolling */
+padding-right: 8px; /* Prevent scrollbar overlap */
 }
 
+/* Archive date container */
 .date-grid div {
-  background: #007bff;
-  color: #fff;
-  padding: 8px; /* Reduced padding */
-  border-radius: 4px; /* Smaller rounding */
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
+    background: #007bff;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.date-grid div:hover {
-  background: #0056b3;
-  transform: scale(1.05);
-}
+  .date-grid div:hover {
+    background: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+    transform: translateY(-2px); /* Slight hover lift */
+    z-index: 10;
+  }
+  
+/* Number styling */
+.archive-number {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  
+  /* Date text styling */
+  .archive-date-text {
+    font-size: 0.5rem;
+    font-weight: normal;
+    color: #e0e0e0; /* Slightly lighter color for contrast */
+  }
+  
+  .date-grid div.selected {
+    background: #4e47cc;
+  }
 
-.date-grid div.selected {
-  background: #4e47cc;
-}
-
-button#close-archive {
-  background: #333;
-  color: #fff;
-  margin-top: 15px; /* Reduced margin */
-  padding: 8px 16px; /* Reduced padding */
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button#close-archive:hover {
-  background: #555;
-}
+/* Scrollbar styling (optional) */
+.date-grid::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .date-grid::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 10px;
+  }
+  
+  .date-grid::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+  }
+  
+  button#close-archive {
+    background: #333;
+    color: #fff;
+    margin-top: 15px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button#close-archive:hover {
+    background: #555;
+  }
