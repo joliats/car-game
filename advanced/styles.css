@@ -1,180 +1,233 @@
-h1 {
-  margin: 10px 0; /* Reduces top and bottom margin to 10px, removes left and right margin */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* Base styles */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #f4f4f4;
-  color: #333;
+  background: linear-gradient(135deg, #007bff, #6c63ff);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 5px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .game-container {
-  text-align: center;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(199, 116, 116, 0.2);
+  background: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   width: 90%;
-  max-width: 400px;
+  max-width: 360px;
+  text-align: center;
 }
 
-#photo-container img {  
+#photo-container img {
   max-width: 100%;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-button#submit-guess {
-  display: block; /* Ensures the button takes up its own line */
-  margin: 10px auto; /* Centers the button horizontally */
-  padding: 10px 20px; /* Adds padding for better clickability */
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px; /* Optional: Improves readability */
-}
-
-button#submit-guess:hover {
-  background: #555; /* Subtle hover effect */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #guess-container {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping to form rows */
-  justify-content: space-between; /* Ensures spacing between inputs */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
 }
 
 #guess-container input {
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: calc(48% - 10px); /* Two inputs per row, accounting for margins */
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: calc(48% - 8px);
+  font-size: 14px;
 }
 
-#feedback {
-  font-weight: 400px;
-  margin-top: 0px;
-  font-size: 1rem;
+#guess-container input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
-.hidden {
-  display: none;
+#trim:disabled {
+  background: #f8f9fa;
+  color: #aaa;
 }
 
-#archive-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-.archive-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px;
-}
-
-.date-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.date-grid div {
-  background: #f4f4f4;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.date-grid div:hover {
-  background: #ddd;
-}
-
-.date-grid div.selected {
-  background: #333;
+button,
+a.button {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
   color: #fff;
+  background: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover,
+a.button:hover {
+  background: #007bff;
+  transform: scale(1.05);
+}
+
+#normal-button {
+  background: #20c866;
+}
+
+#normal-button:hover {
+  background: #1b8a49;
+}
+
+#linktree-button {
+  background: none;
+  color: #828282;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#linktree-button:hover {
+  color: #e06b40;
 }
 
 #button-container {
   display: flex;
   justify-content: center;
-  gap: 10px; /* Adds spacing between the buttons */
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
-#linktree-button {
-  padding: 10px;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  display: inline-block;
+#feedback {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #333;
 }
 
-#linktree-button:hover {
-  background: #555;
-}
-
-
-button {
-  padding: 10px 20px;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #555;
-} 
-
-.hidden {
-  display: none;
-}
-
+/* Archive Modal */
 #archive-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
 }
 
 #archive-modal.hidden {
-  display: none; /* Ensure modal is invisible */
+  display: none;
 }
 
+.archive-content {
+  background: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+  max-height: 40vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Archive date container */
+.date-grid div {
+  background: #007bff;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-grid div:hover {
+  background: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+/* Number styling */
+.archive-number {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+/* Date text styling */
+.archive-date-text {
+  font-size: 0.5rem;
+  font-weight: normal;
+  color: #e0e0e0;
+}
+
+.date-grid div.selected {
+  background: #4e47cc;
+}
+
+/* Scrollbar styling (optional) */
+.date-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.date-grid::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 10px;
+}
+
+.date-grid::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+button#close-archive {
+  background: #333;
+  color: #fff;
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#close-archive:hover {
+  background: #555;
+}
