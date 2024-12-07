@@ -175,14 +175,23 @@ function setupArchive(data) {
 function loadArchive(data) {
   const archiveGrid = document.getElementById('archive-grid');
   archiveGrid.innerHTML = ""; // Clear previous grid
-  Object.keys(data).forEach(date => {
+
+  const dates = Object.keys(data).sort(); // Sort dates in ascending order (oldest first)
+  const totalDates = dates.length; // Get the total number of dates
+
+  dates.reverse().forEach((date, index) => {
     const dateDiv = document.createElement('div');
-    dateDiv.textContent = date;
     dateDiv.className = "archive-date";
+
+    // Add numbering and date
+    dateDiv.innerHTML = `<span class="archive-number">#${totalDates - index}</span>
+                         <span class="archive-date-text">${date}</span>`;
+
     dateDiv.addEventListener('click', () => {
       document.getElementById('archive-modal').classList.add('hidden');
       setupGame(data, date);
     });
+
     archiveGrid.appendChild(dateDiv);
   });
 }
