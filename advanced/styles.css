@@ -9,16 +9,10 @@ body {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align content to the top */
   min-height: 100vh;
   text-align: center;
   overflow: hidden;
-}
-
-h1 {
-  font-size: 1.8rem;
-  margin: 5px 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .game-container {
@@ -30,7 +24,17 @@ h1 {
   width: 90%;
   max-width: 360px;
   text-align: center;
+  margin-top: 10px; /* Ensure no gap above */
+  margin-bottom: 0; /* Prevent extra space below */
+  position: relative;
 }
+
+h1 {
+  font-size: 1.8rem;
+  margin: 5px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 
 #photo-container img {
   max-width: 100%;
