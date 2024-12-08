@@ -5,14 +5,28 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #374e67, #2e2b70);
+  background: linear-gradient(135deg, #0f1318, #2e2b70);
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align content to the top */
   min-height: 100vh;
   text-align: center;
   overflow: hidden;
+}
+
+.game-container {
+  background: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  margin-top: 10px; /* Ensure no gap above */
+  margin-bottom: 0; /* Prevent extra space below */
+  position: relative;
 }
 
 h1 {
@@ -21,16 +35,7 @@ h1 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.game-container {
-  background: #fff;
-  color: #333;
-  padding: 15px; /* Reduced padding */
-  border-radius: 15px; /* Slightly less rounded */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 360px; /* Smaller max-width */
-  text-align: center;
-}
+
 
 #photo-container img {
   max-width: 100%;
