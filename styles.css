@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 /* Base styles */
+/* Base styles */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -13,7 +14,57 @@ body {
   min-height: 100vh;
   text-align: center;
   overflow: hidden;
+  padding: 0; /* Remove padding to avoid extra background space */
 }
+
+/* For Mobile Screens */
+@media screen and (max-width: 768px) {
+  body {
+    align-items: flex-start; /* Push content closer to the top */
+    min-height: auto; /* Allow height to adapt dynamically */
+  }
+
+  .game-container {
+    margin-top: 20px; /* Add a small margin for spacing */
+    height: 100vh; /* Occupy the full viewport height */
+    box-shadow: none; /* Reduce unnecessary shadows on smaller screens */
+    border-radius: 0; /* Remove rounding for a seamless look */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  #photo-container img {
+    max-height: 50vh; /* Limit image height for better visibility */
+    object-fit: contain; /* Ensure the image scales properly */
+  }
+
+  #guess-container,
+  #button-container {
+    padding: 10px; /* Add spacing for better touch usability */
+  }
+}
+
+/* For Very Small Screens (Phones under 480px) */
+@media screen and (max-width: 480px) {
+  .game-container {
+    width: 100%; /* Use the full width of the screen */
+    padding: 10px; /* Reduce padding for smaller space */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  button,
+  a.button {
+    font-size: 12px; /* Adjust button text size */
+    padding: 8px 12px; /* Reduce button size */
+  }
+
+  #feedback {
+    font-size: 0.8rem; /* Reduce feedback font size */
+  }
+}
+
 
 h1 {
   font-size: 1.8rem; /* Reduced size */
