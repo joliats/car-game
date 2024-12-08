@@ -1,4 +1,19 @@
 {
+  "2024-12-08": {
+    "make": "Bugatti",
+    "model": "Veyron",
+    "year": 2006,
+    "trim": null,
+    "photos": [
+      "photos/2024-12-08/2024-12-08-1.jpeg",
+      "photos/2024-12-08/2024-12-08-2.jpeg",
+      "photos/2024-12-08/2024-12-08-3.jpeg",
+      "photos/2024-12-08/2024-12-08-4.jpeg",
+      "photos/2024-12-08/2024-12-08-full.jpeg"
+    ],
+    "credits": "Photos by carspotter @Lbwk4 on Tiktok"
+  },
+
   "2024-12-07": {
     "make": "Ford",
     "model": "Mustang",
