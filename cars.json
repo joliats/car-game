@@ -1,4 +1,18 @@
-{
+{ "2025-01-11": {
+  "make": "Lamborghini",
+  "model": "Aventador",
+  "year": 2021,
+  "trim": "Ultimate",
+  "photos": [
+    "photos/2025-01-11/2025-01-11-1.jpeg",
+    "photos/2025-01-11/2025-01-11-2.jpeg",
+    "photos/2025-01-11/2025-01-11-3.jpeg",
+    "photos/2025-01-11/2025-01-11-4.jpeg",
+    "photos/2025-01-11/2025-01-11-full.jpeg"
+  ],
+  "credits": "Photography by @Carbon.bottle on Tiktok"
+  },
+
   "2025-01-10": {
     "make": "Volkswagen",
     "model": "Golf",
