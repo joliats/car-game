@@ -21,14 +21,13 @@ body {
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  width: 90%; /* Maintain width relative to screen size */
-  max-width: 90%; /* Allow up to 90% of the viewport width */
+  width: 90%;
+  max-width: 360px;
   text-align: center;
   margin-top: 10px; /* Ensure no gap above */
   margin-bottom: 0; /* Prevent extra space below */
   position: relative;
 }
-
 
 h1 {
   font-size: 1.8rem; /* Reduced size */
