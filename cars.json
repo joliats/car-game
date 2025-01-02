@@ -4,11 +4,11 @@
   "year": 2021,
   "trim": "Ultimate",
   "photos": [
-    "photos/2025-01-11/2025-01-11-1.jpeg",
-    "photos/2025-01-11/2025-01-11-2.jpeg",
-    "photos/2025-01-11/2025-01-11-3.jpeg",
-    "photos/2025-01-11/2025-01-11-4.jpeg",
-    "photos/2025-01-11/2025-01-11-full.jpeg"
+    "photos/2025-01-11/2025-01-11-1.jpg",
+    "photos/2025-01-11/2025-01-11-2.jpg",
+    "photos/2025-01-11/2025-01-11-3.jpg",
+    "photos/2025-01-11/2025-01-11-4.jpg",
+    "photos/2025-01-11/2025-01-11-full.jpg"
   ],
   "credits": "Photography by @Carbon.bottle on Tiktok"
   },
@@ -131,5 +131,20 @@
       "photos/2025-01-03/2025-01-03-full.jpeg"
     ],
     "credits": "Photography by @718.photos on Instagram"
+  },
+
+  "2025-01-02": {
+    "make": "Porsche",
+    "model": "GT3RS",
+    "year": 2022,
+    "trim": "992.1",
+    "photos": [
+      "photos/2025-01-02/2025-01-02-1.jpeg",
+      "photos/2025-01-02/2025-01-02-2.jpeg",
+      "photos/2025-01-02/2025-01-02-3.jpeg",
+      "photos/2025-01-02/2025-01-02-4.jpeg",
+      "photos/2025-01-02/2025-01-02-full.jpeg"
+    ],
+    "credits": "Photography by @Carbon.bottle on Tiktok"
   }
 }
