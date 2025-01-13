@@ -1,4 +1,18 @@
-{ 
+{ "2025-01-13": {
+  "make": "Ferrari",
+  "model": "Laferrari",
+  "year": 2014,
+  "trim": null,
+  "photos": [
+    "photos/2025-01-13/2025-01-13-1.jpg",
+    "photos/2025-01-13/2025-01-13-2.jpg",
+    "photos/2025-01-13/2025-01-13-3.jpg",
+    "photos/2025-01-13/2025-01-13-4.jpg",
+    "photos/2025-01-13/2025-01-13-full.jpg"
+  ],
+  "credits": "Carspotter @jonah.cars on TikTok and @mass.spotting on insta"
+  },
+
   "2025-01-12": {
     "make": "Chevrolet",
     "model": "Corvette",
