@@ -1,4 +1,19 @@
-{ "2025-01-23": {
+{ "2025-01-28": {
+  "make": "BMW",
+  "model": "M3",
+  "year": 2000,
+  "trim": null,
+  "photos": [
+    "photos/2025-01-28/2025-01-28-1.jpg",
+    "photos/2025-01-28/2025-01-28-2.jpg",
+    "photos/2025-01-28/2025-01-28-3.jpg",
+    "photos/2025-01-28/2025-01-28-4.jpg",
+    "photos/2025-01-28/2025-01-28-full.jpg"
+  ],
+  "credits": "Photography by @cars.x.coffee on Instagram"
+  },
+
+  "2025-01-23": {
   "make": "Ferrari",
   "model": "Laferrari",
   "year": 2014,
