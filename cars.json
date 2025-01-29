@@ -1,4 +1,19 @@
-{ "2025-01-28": {
+{ "2025-01-29": {
+  "make": "Toyota",
+  "model": "Supra",
+  "year": 2020,
+  "trim": null,
+  "photos": [
+    "photos/2025-01-29/2025-01-29-1.jpg",
+    "photos/2025-01-29/2025-01-29-2.jpg",
+    "photos/2025-01-29/2025-01-29-3.jpg",
+    "photos/2025-01-29/2025-01-29-4.jpg",
+    "photos/2025-01-29/2025-01-29-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+
+  "2025-01-28": {
   "make": "BMW",
   "model": "M3",
   "year": 2000,
