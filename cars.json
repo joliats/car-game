@@ -1,4 +1,20 @@
-{ "2025-01-29": {
+{ "2025-01-30": {
+  "make": "Toyota",
+  "model": "Supra",
+  "year": 1997,
+  "trim": null,
+  "photos": [
+    "photos/2025-01-30/2025-01-30-1.jpeg",
+    "photos/2025-01-30/2025-01-30-2.jpeg",
+    "photos/2025-01-30/2025-01-30-3.jpeg",
+    "photos/2025-01-30/2025-01-30-4.jpeg",
+    "photos/2025-01-30/2025-01-30-full.jpeg"
+  ],
+  
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-01-29": {
   "make": "Toyota",
   "model": "Supra",
   "year": 2020,
@@ -10,6 +26,7 @@
     "photos/2025-01-29/2025-01-29-4.jpeg",
     "photos/2025-01-29/2025-01-29-full.jpeg"
   ],
+
   "credits": "Photography by @718.photos on Instagram"
   },
 
