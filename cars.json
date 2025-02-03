@@ -1,4 +1,20 @@
-{ "2025-01-30": {
+{ "2025-02-3": {
+  "make": "Honda",
+  "model": "Prelude",
+  "year": 1997,
+  "trim": null,
+  "photos": [
+    "photos/2025-02-03/2025-02-03-1.jpg",
+    "photos/2025-02-03/2025-02-03-2.jpg",
+    "photos/2025-02-03/2025-02-03-3.jpg",
+    "photos/2025-02-03/2025-02-03-4.jpg",
+    "photos/2025-02-03/2025-02-03-full.jpg"
+  ],
+  
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-01-30": {
   "make": "Toyota",
   "model": "Supra",
   "year": 1997,
