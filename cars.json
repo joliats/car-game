@@ -1,4 +1,19 @@
-{ "2025-02-05": {
+{ "2025-02-06": {
+  "make": "BMW",
+  "model": "M3",
+  "year": 2025,
+  "trim": "Competition",
+  "photos": [
+    "photos/2025-02-06/2025-02-06-1.jpg",
+    "photos/2025-02-06/2025-02-06-2.jpg",
+    "photos/2025-02-06/2025-02-06-3.jpg",
+    "photos/2025-02-06/2025-02-06-4.jpg",
+    "photos/2025-02-06/2025-02-06-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-02-05": {
   "make": "Aston Martin",
   "model": "DBS",
   "year": 2023,
