@@ -1,4 +1,19 @@
-{ "2025-02-06": {
+{ "2025-02-11": {
+  "make": "Porsche",
+  "model": "911",
+  "year": 2023,
+  "trim": "GT3 RS",
+  "photos": [
+    "photos/2025-02-11/2025-02-11-1.jpg",
+    "photos/2025-02-11/2025-02-11-2.jpg",
+    "photos/2025-02-11/2025-02-11-3.jpg",
+    "photos/2025-02-11/2025-02-11-4.jpg",
+    "photos/2025-02-11/2025-02-11-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-02-06": {
   "make": "BMW",
   "model": "M3",
   "year": 2025,
