@@ -1,4 +1,19 @@
-{ "2025-02-11": {
+{ "2025-02-19": {
+  "make": "Lamborghini",
+  "model": "Huracan",
+  "year": 2022,
+  "trim": "EVO",
+  "photos": [
+    "photos/2025-02-19/2025-02-19-1.jpg",
+    "photos/2025-02-19/2025-02-19-2.jpg",
+    "photos/2025-02-19/2025-02-19-3.jpg",
+    "photos/2025-02-19/2025-02-19-4.jpg",
+    "photos/2025-02-19/2025-02-19-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-02-11": {
   "make": "Porsche",
   "model": "911",
   "year": 2023,
