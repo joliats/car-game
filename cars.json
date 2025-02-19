@@ -1,4 +1,19 @@
-{ "2025-02-19": {
+{ "2025-02-20": {
+  "make": "BMW",
+  "model": "M3",
+  "year": 2019,
+  "trim": null,
+  "photos": [
+    "photos/2025-02-20/2025-02-20-1.jpg",
+    "photos/2025-02-20/2025-02-20-2.jpg",
+    "photos/2025-02-20/2025-02-20-3.jpg",
+    "photos/2025-02-20/2025-02-20-4.jpg",
+    "photos/2025-02-20/2025-02-20-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-02-19": {
   "make": "Lamborghini",
   "model": "Huracan",
   "year": 2022,
