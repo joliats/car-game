@@ -1,4 +1,19 @@
-{ "2025-02-20": {
+{ "2025-03-05": {
+  "make": "Mitsubishi",
+  "model": "3000GT",
+  "year": 1991,
+  "trim": "SL",
+  "photos": [
+    "photos/2025-03-05/2025-03-05-1.jpg",
+    "photos/2025-03-05/2025-03-05-2.jpg",
+    "photos/2025-03-05/2025-03-05-3.jpg",
+    "photos/2025-03-05/2025-03-05-4.jpg",
+    "photos/2025-03-05/2025-03-05-full.jpg"
+  ],
+  "credits": "Car owned by myztic3kgt on TIktok and Daniel3kgt on Instagram"
+  },
+  
+  "2025-02-20": {
   "make": "BMW",
   "model": "M3",
   "year": 2019,
