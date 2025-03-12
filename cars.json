@@ -1,4 +1,19 @@
-{ "2025-03-11": {
+{ "2025-03-12": {
+  "make": "Chevrolet",
+  "model": "Chevelle",
+  "year": 1974,
+  "trim": "SS",
+  "photos": [
+    "photos/2025-03-12/2025-03-12-1.jpg",
+    "photos/2025-03-12/2025-03-12-2.jpg",
+    "photos/2025-03-12/2025-03-12-3.jpg",
+    "photos/2025-03-12/2025-03-12-4.jpg",
+    "photos/2025-03-12/2025-03-12-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-03-11": {
   "make": "McLaren",
   "model": "Sabre",
   "year": 2020,
