@@ -49,7 +49,7 @@ function resetInputFields() {
 
   const trimInput = document.getElementById('trim');
   if (!currentGame.trim) {
-    trimInput.placeholder = "No trim levels"; // Set placeholder
+    trimInput.placeholder = "No trim"; // Set placeholder
     trimInput.disabled = true; // Disable input
   } else {
     trimInput.placeholder = "Trim"; // Reset placeholder for enabled trim input

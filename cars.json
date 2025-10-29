@@ -14,6 +14,67 @@
   },
   
   "2025-02-20": {
+{ "2025-03-13": {
+  "make": "BMW",
+  "model": "M3",
+  "year": 1988,
+  "trim": null,
+  "photos": [
+    "photos/2025-03-13/2025-03-13-1.jpg",
+    "photos/2025-03-13/2025-03-13-2.jpg",
+    "photos/2025-03-13/2025-03-13-3.jpg",
+    "photos/2025-03-13/2025-03-13-4.jpg",
+    "photos/2025-03-13/2025-03-13-full.jpg"
+  ],
+  "credits": "Photography by @Gavinautomotive on Instagram"
+  },
+  
+  "2025-03-12": {
+  "make": "Chevrolet",
+  "model": "Chevelle",
+  "year": 1974,
+  "trim": "SS",
+  "photos": [
+    "photos/2025-03-12/2025-03-12-1.jpg",
+    "photos/2025-03-12/2025-03-12-2.jpg",
+    "photos/2025-03-12/2025-03-12-3.jpg",
+    "photos/2025-03-12/2025-03-12-4.jpg",
+    "photos/2025-03-12/2025-03-12-full.jpg"
+  ],
+  "credits": "Photography by @718.photos on Instagram"
+  },
+  
+  "2025-03-11": {
+  "make": "McLaren",
+  "model": "Sabre",
+  "year": 2020,
+  "trim": null,
+  "photos": [
+    "photos/2025-03-11/2025-03-11-1.jpg",
+    "photos/2025-03-11/2025-03-11-2.jpg",
+    "photos/2025-03-11/2025-03-11-3.jpg",
+    "photos/2025-03-11/2025-03-11-4.jpg",
+    "photos/2025-03-11/2025-03-11-full.jpg"
+  ],
+  "credits": "Photography by @Jonah.Cars on TIktok and @Mass.spotting on Instagram"
+  },
+  
+  "2025-03-05": {
+  "make": "Mitsubishi",
+  "model": "3000GT",
+  "year": 1991,
+  "trim": "SL",
+  "photos": [
+    "photos/2025-03-05/2025-03-05-1.jpg",
+    "photos/2025-03-05/2025-03-05-2.jpg",
+    "photos/2025-03-05/2025-03-05-3.jpg",
+    "photos/2025-03-05/2025-03-05-4.jpg",
+    "photos/2025-03-05/2025-03-05-full.jpg"
+  ],
+  "credits": "Car owned by @myztic3kgt on TIktok and @Daniel3kgt on Instagram"
+  },
+  
+  "2025-02-20": {
   "make": "BMW",
   "model": "M3",
   "year": 2019,
