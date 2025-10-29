@@ -1,4 +1,19 @@
-{ "2025-02-20": {
+{ "2025-10-30": {
+  "make": "Ferrari",
+  "model": "Enzo",
+  "year": 2002,
+  "trim": null,
+  "photos": [
+    "photos/2025-10-30/2025-10-30-1.jpg",
+    "photos/2025-10-30/2025-10-30-2.jpg",
+    "photos/2025-10-30/2025-10-30-3.jpg",
+    "photos/2025-10-30/2025-10-30-4.jpg",
+    "photos/2025-10-30/2025-10-30-full.jpg"
+  ],
+  "credits": "Photography by ThomasCarEdits on TikTok"
+  },
+  
+  "2025-02-20": {
   "make": "BMW",
   "model": "M3",
   "year": 2019,
